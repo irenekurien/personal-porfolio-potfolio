@@ -1,16 +1,48 @@
+<!doctype html>
 {% extends 'portfolio/base.html' %}
 {% block content %}
+{% load static %}
 
-<h3>my blogs</h3>
+<html>
 
-<h2>I have return {{  blogs.count }} blog{{blogs.count|pluralize}}</h2>
+    <head>
+        <title>Blogs</title>
 
-{% for blog in blogs %}
+        <link rel='stylesheet' type='text/css' href= "{% static 'portfolio/all_blogs.css' %}">
+        <!--[if IE]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
 
-<a href="{% url 'blog:details' blog.id%}"> <h2>{{ blog.title }}</h2> </a>
-<h5>{{ blog.date|date:'M d Y' }}</h5>
-<p>{{ blog.description|striptags|truncatechars:100 }}</p>
+    <body>
+            <header>
+                <h1>My Blog</h1>
+                <h2>I have written {{  blogs.count }} blog{{blogs.count|pluralize}}</h2>
+            </header>
 
-{% endfor %}
+            {% for blog in blogs %}
 
+                <div id="container">
+
+                <article>
+                    <section class="post-head">
+                        <a href="{% url 'blog:details' blog.id%}"> <h2>{{ blog.title }}</h2> </a>
+                        <small>Posted on {{ blog.date|date:'M d Y' }}</small>
+                    </section>
+
+                    <section class="post-body">
+                        <p>{{ blog.description|striptags|truncatechars:100 }}</p>
+                    </section>
+                </article>
+
+                </div><!-- #container -->
+
+            {% endfor %}
+
+            <footer>
+                <p>&copy; 2020 &bull; Asher Sam Sajan</p>
+            </footer>
+    </body>
+
+</html>
 {% endblock %}

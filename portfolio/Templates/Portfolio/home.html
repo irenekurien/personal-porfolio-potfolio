@@ -1,24 +1,47 @@
+<!doctype html>
 {% extends 'portfolio/base.html' %}
 {% block content %}
-
-<h1>MY PORTFOLIO</h1>
-
 {% load static %}
 
-<a href="{% url 'blog:all_blogs' %}">Blog</a>
+<html>
 
-<br><img src="{% static 'portfolio/20170719_222445-01.jpeg' %}">
-<br><a href="{% static 'portfolio/Resume.docx' %}">Resume</a>
+    <head>
+        <title>My Portfolio </title>
 
-{% for project in projects %}
+        <link rel='stylesheet' type='text/css' href= "{% static 'portfolio/all_blogs.css' %}">
+        <!--[if IE]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
 
-    <h2>{{ project.title }}</h2>
-    <p>{{ project.description }}</p>
-    <img src="{{ project.image.url }}" height="100" width="50">
+    <body>
+        <header>
+            <h1>My Portfolio</h1>
+        </header>
 
-{% if project.url%}
-<br><a href="{{ project.url }}">Link</a>
-{% endif %}
-{% endfor %}
+        <div id="container">
 
+            <br><img src="{% static 'portfolio/20170719_222445-01.jpeg' %}" width="50%" height="50%">
+            <br><a href="{% static 'portfolio/Resume.docx' %}">Resume</a>
+
+            {% for project in projects %}
+
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.description }}</p>
+                <img src="{{ project.image.url }}" height="100" width="50">
+
+                {% if project.url%}
+                    <br><a href="{{ project.url }}">Link</a>
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+        <footer>
+            <p>&copy; 2020 &bull; Asher Sam Sajan</p>
+        </footer>
+    </body>
+
+</html>
 {% endblock %}

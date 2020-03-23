@@ -1,0 +1,56 @@
+/* Blog Stylesheet */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 18px;
+    font-family: Georgia, Times, serif;
+    background: #f2f2f2;
+}
+
+h1,h2,h3 {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    background: #fff;
+    color: #1a71b8;
+    padding: 10px;
+}
+
+#date {
+    font-size: 15px;
+}
+
+article {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+article p {
+    margin: 0 0 1em;
+}
+
+section.post-head small {
+    display: block;
+    margin: 0 0 20px;
+    padding: 0 0 20px;
+    border-bottom: solid 1px #eee;
+    color: #00c6a0;
+}
+
+footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+}
